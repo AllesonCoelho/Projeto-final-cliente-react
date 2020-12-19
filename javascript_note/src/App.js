@@ -1,5 +1,15 @@
-import React from 'react'
+import React from 'react';
+import "./App.scss";
+import { Notification, Section } from 'rbx';
 
-const App = () => <p>Javascript Notes</p>
+const App = () => (
+  <div>
+    <Section>
+      <Notification color="success">
+        Javascript Notes!
+      </Notification>
+    </Section>
+  </div>
+)
 
 export default App;
