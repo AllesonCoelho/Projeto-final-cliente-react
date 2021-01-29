@@ -10,7 +10,12 @@ function ListNotes(props) {
                 <Column size={6} offset={1}>
                     <Title size={6}>
                         {props.notes.length} Notes
-            </Title>
+                    </Title>
+                </Column>
+                <Column size={2}>
+                    <Button state="active" color="custom-purple" outlined size="small" onClick={() => props.createNote()}>
+                        Notes +
+                    </Button>
                 </Column>
             </Column.Group>
             <List className="notes-list">
@@ -22,6 +27,7 @@ function ListNotes(props) {
                         <Title size={6} subtitle spaced={false}>
                             {item.body.replace(/(<([^>]+)>)/ig, "").substring(0, 30)}
                         </Title>
+
 
                         <Column.Group breakpoint="mobile">
                             <Column size={10}>

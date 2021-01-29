@@ -1,6 +1,6 @@
 import React, { Fragment, useEffect, useState } from 'react';
 import { Column, Button } from "rbx";
-import "../../styles/notes.scss";
+import "../../styles/notes.scss"
 import { push as Menu } from 'react-burger-menu'
 import List from '../notes/list/index'
 import NotesService from '../../services/notes'
@@ -20,6 +20,10 @@ function Notes(props) {
             setNotes(response.data.reverse())
             setCurrentNote(response.data[0])
         }
+    }
+    const createNote = async (params) => {
+        const note = await NotesService.create();
+        fetchNotes();
     }
 
     const selectNote = (id) => {
@@ -41,16 +45,23 @@ function Notes(props) {
                     customBurgerIcon={false}
                     customCrossIcon={false}
                 >
+
+                    <Column.Group>
+                        <Column size={10} offset={1}>
+                            Search...
+                        </Column>
+                    </Column.Group>
                     <List
                         notes={notes}
                         selectNote={selectNote}
+                        createNote={createNote}
                         current_note={current_note} />
                 </Menu>
 
 
                 <Column size={12} className="notes-editor" id="notes-editor">
                     Editor...
-          </Column>
+                </Column>
             </div>
         </Fragment>
     )
