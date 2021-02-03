@@ -1,10 +1,13 @@
 import React, { Fragment } from 'react';
 import { Column, Section, Title, Container, Card, Button } from "rbx";
 import "../../../styles/users.scss";
+import UsersEditForm from "../../../components/users/user_edit_form";
+// import UsersEditPasswordForm from "../../../components/user/users_edit_password_form";
+// import UsersDelete from "../../../components/users/user_delete";
 import HeaderLogged from "../../../components/header_logged";
 
 
-const UserEditScreen = () => (
+const UserEdit = () => (
     <Fragment>
         <HeaderLogged />
         <Section size="medium" className="users">
@@ -16,7 +19,7 @@ const UserEditScreen = () => (
                         </Title>
                         <Card>
                             <Card.Content>
-                                Users Edit Form...
+                                <UsersEditForm />
                             </Card.Content>
                         </Card>
                     </Column>
@@ -26,22 +29,23 @@ const UserEditScreen = () => (
                     <Column size={4}>
                         <Title size={5} className="has-text-grey has-text-left">
                             Password
-            </Title>
+                        </Title>
                         <Card>
                             <Card.Content>
-                                Users Edit Password Form...
+
                             </Card.Content>
                         </Card>
+
                     </Column>
                 </Column.Group>
                 <Column.Group centered>
                     <Column size={4} className="has-text-right">
-                        Users Delete Button...
-                </Column>
+
+                    </Column>
                 </Column.Group>
             </Container>
         </Section>
     </Fragment>
-);
+)
 
-export default UserEditScreen;
+export default UserEdit
